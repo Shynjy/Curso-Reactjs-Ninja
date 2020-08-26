@@ -1,7 +1,7 @@
 'use strict'
 
 // const React = require('react')
-import React from 'react'
+import React from '../node_modules/react/react'
 
 // sem babel
 // let Title = React.createClass({
