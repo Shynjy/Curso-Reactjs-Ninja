@@ -1,24 +1,37 @@
 'use strict'
 
-// padrão ES6/2015
-import Title from './app'
-
 // const React = require('react')
 import React from 'react'
 
 // const  ReactDOM = require('react-dom')
 import { render } from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+
+// padrão ES6/2015
+import App from './app'
 
 // padrão commonjs
 // var Title = require('./app')
 
-const Root = document.querySelector('[data-js="app"]')
-
 // sem babel
-// render(
-//     React.createElement(Title),
-//     Root
-// )
+// render( React.createElement(Title), document.querySelector('[data-js="app"]') )
 
-// com babel-preset-react
-render( <Title/>, Root )
+const rootapp = document.querySelector('[data-js="app"]')
+
+const renderApp = (NextApp) => {
+    render(
+        <AppContainer>
+            <NextApp />
+        </AppContainer>, rootapp
+    )
+}
+
+renderApp(App)
+
+if (module.hot) {
+    module.hot.accept('./app', () => {
+        const NextApp = require('./app').default
+
+        renderApp(NextApp)
+    })
+}

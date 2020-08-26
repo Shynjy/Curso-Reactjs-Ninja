@@ -11,9 +11,9 @@ import React from 'react'
 // })
 
 // com babel-preset-react
-let Title = React.createClass({
+const App = React.createClass({
     render: function () {
-        return <h1>Título</h1>
+        return <div>Aplicação</div>
     }
 })
 
@@ -21,4 +21,4 @@ let Title = React.createClass({
 // module.exports = Title
 
 // ES6/2105
-export default Title
+export default App
