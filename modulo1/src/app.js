@@ -4,6 +4,9 @@ import React, { Component } from 'react'
 import Title from './title'
 import Square from './square'
 
+import Button from './button'
+import LikeButton from './like-button'
+
 // var App = React.createClass({
 //     render: function () {
 //     return <div>
@@ -17,9 +20,21 @@ class App extends Component {
     return (
       <div>
         <Title name='David' lastname='Pereira!' />
+        {/* exemplo de criação de keys 
         {['blue', 'red', 'green', 'yellow', 'black'].map(square => {
           return <Square key={square} color={square} />
         })}
+        */}
+        <div className='container' onClick={e => alert('clicou!')}>
+          <Square />
+        </div>
+        <div className='container'>
+          <Button>Botão</Button>
+        </div>
+        {/* Esse botão é uma composição do botão padrão */}
+        <div className='container'>
+          <LikeButton />
+        </div>
       </div>
     )
   }
