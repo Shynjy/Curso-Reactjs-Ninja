@@ -19,7 +19,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      text: 'Texto Teste'
+      text: 'Texto Teste',
+      color: 'green'
     }
   }
 
@@ -34,7 +35,15 @@ class App extends Component {
         })}
         */}
         <div className='container' onClick={e => alert('clicou!')}>
-          <Square />
+          <Square color={ this.state.color } />
+        </div>
+        <div>
+        {['red', 'blue', 'green'].map(color => 
+            <Button key={color}
+            handleClick={() => this.setState({ color })}>
+              { color }
+            </Button>
+          )}
         </div>
         <div className='container'>
           <Button>Botão</Button>
@@ -47,6 +56,7 @@ class App extends Component {
           onClick={() => this.setState({ text: `Texto clicado`})}>
           {this.state.text}
         </div>
+        
       </div>
     )
   }
