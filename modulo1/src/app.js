@@ -16,6 +16,14 @@ import LikeButton from './like-button'
 // })
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      text: 'Texto Teste'
+    }
+  }
+
+
   render() {
     return (
       <div>
@@ -34,6 +42,10 @@ class App extends Component {
         {/* Esse botão é uma composição do botão padrão */}
         <div className='container'>
           <LikeButton />
+        </div>
+        <div className='container'
+          onClick={() => this.setState({ text: `Texto clicado`})}>
+          {this.state.text}
         </div>
       </div>
     )
