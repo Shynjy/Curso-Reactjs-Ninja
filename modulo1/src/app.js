@@ -29,16 +29,11 @@ class App extends Component {
     return (
       <div>
         <Title name='David' lastname='Pereira!' />
-        {/* exemplo de criação de keys 
-        {['blue', 'red', 'green', 'yellow', 'black'].map(square => {
-          return <Square key={square} color={square} />
-        })}
-        */}
         <div className='container' onClick={e => alert('clicou!')}>
           <Square color={ this.state.color } />
         </div>
         <div>
-        {['red', 'blue', 'green'].map(color => 
+        {['red', 'blue', 'green', 'yellow'].map(color => 
             <Button key={color}
             handleClick={() => this.setState({ color })}>
               { color }
