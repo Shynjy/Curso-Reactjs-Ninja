@@ -7,6 +7,8 @@ import Square from './square'
 import Button from './button'
 import LikeButton from './like-button'
 
+import Timer from './timer'
+
 // var App = React.createClass({
 //     render: function () {
 //     return <div>
@@ -17,18 +19,33 @@ import LikeButton from './like-button'
 
 class App extends Component {
   constructor() {
+    console.log('constructor');
     super()
     this.state = {
       text: 'Texto Teste',
-      color: 'green'
+      color: 'green',
+      showTimer: true
     }
+  }
+
+  componentWillMount () {
+    console.log('componenteWillMount');
+  }
+
+  componentDidMount () {
+    console.log('componenteDidMount');
   }
 
 
   render() {
+    console.log('render');
     return (
       <div>
         <Title name='David' lastname='Pereira!' />
+        {this.state.showTimer && <Timer />}
+        <Button handleClick={() => this.setState({ showTimer: !this.state.showTimer})}>
+            Show / hide timer
+        </Button>
         <div className='container' onClick={e => alert('clicou!')}>
           <Square color={ this.state.color } />
         </div>
@@ -51,7 +68,6 @@ class App extends Component {
           onClick={() => this.setState({ text: `Texto clicado`})}>
           {this.state.text}
         </div>
-        
       </div>
     )
   }
