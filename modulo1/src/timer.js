@@ -2,17 +2,16 @@
 
 import React, { Component } from 'react'
 
+let currentTime = 0
+
 export default class Timer extends Component {
     constructor() {
         super()
         this.state = {
-            time: 0
+            time: currentTime
         }
 
         this.timer;
-    }
-    render() {
-        return ( <div>Timer: {this.state.time}</div> ) 
     }
 
     componentDidMount() {
@@ -22,6 +21,20 @@ export default class Timer extends Component {
     }
 
     componentWillUnmount() {
+        currentTime = this.state.time
         clearInterval(this.timer)
+    }
+
+    componentWillReceiveProps (nextProps) {
+        console.log('componentWillReceiveProps', this.props, nextProps.time);
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate');
+        return this.state.time !== nextState.time
+    }
+
+    render() {
+        return ( <div>Timer: {this.state.time}</div> ) 
     }
 }

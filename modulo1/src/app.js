@@ -24,7 +24,8 @@ class App extends Component {
     this.state = {
       text: 'Texto Teste',
       color: 'green',
-      showTimer: true
+      showTimer: true,
+      time: 0
     }
   }
 
@@ -42,9 +43,13 @@ class App extends Component {
     return (
       <div>
         <Title name='David' lastname='Pereira!' />
-        {this.state.showTimer && <Timer />}
+        {this.state.showTimer && <Timer time={this.state.time} />}
         <Button handleClick={() => this.setState({ showTimer: !this.state.showTimer})}>
             Show / hide timer
+        </Button>
+        <Timer time={this.state.time} />
+        <Button handleClick={() => this.setState({ time: this.state.time + 10})}>
+           Change props
         </Button>
         <div className='container' onClick={e => alert('clicou!')}>
           <Square color={ this.state.color } />
