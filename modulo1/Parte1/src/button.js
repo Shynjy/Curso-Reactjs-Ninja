@@ -1,8 +1,9 @@
 'use strict'
 
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
-export default class Button extends Component {
+class Button extends Component {
     render( ) {
         return <button onClick={ this.props.handleClick } style={{ marginTop: '10px ', marginBottom: '10px'}}>
             { this.props.children }
@@ -13,3 +14,9 @@ export default class Button extends Component {
 Button.defaultProps = {
     handleClick: e => alert('Botão padrão!')
 }
+
+Button.propTypes = {
+    handleClick: PropTypes.func.isRequired
+}
+
+export default Button
