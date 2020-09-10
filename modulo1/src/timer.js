@@ -26,15 +26,20 @@ export default class Timer extends Component {
     }
 
     componentWillReceiveProps (nextProps) {
-        console.log('componentWillReceiveProps', this.props, nextProps.time);
+        console.log('componentWillReceiveProps timer', this.props, nextProps.time);
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate');
+        // console.log('shouldComponentUpdate timer');
         return this.state.time !== nextState.time
     }
 
+    componentWillUpdate(nextProps, nextState) {
+        // console.log('componentWillUpdate timer', this.props, nextProps);
+    }
+
     render() {
+        console.log('render timer');
         return ( <div>Timer: {this.state.time}</div> ) 
     }
 }

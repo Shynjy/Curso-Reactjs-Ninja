@@ -30,16 +30,15 @@ class App extends Component {
   }
 
   componentWillMount () {
-    console.log('componenteWillMount');
+    console.log('componenteWillMount app');
   }
 
   componentDidMount () {
-    console.log('componenteDidMount');
+    console.log('componenteDidMount app');
   }
 
-
   render() {
-    console.log('render');
+    console.log('render app');
     return (
       <div>
         <Title name='David' lastname='Pereira!' />
